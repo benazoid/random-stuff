@@ -1,0 +1,24 @@
+nums = []
+num = 0
+proNums = []
+i = 1
+total = 0
+ave = 0
+ans = 0
+while '' != num:
+  num = input('Number ' + str(i) + ': ')
+  if num.isdigit():
+    nums.append(int(num))
+  i += 1
+nums.pop()
+i = 0
+for i in nums:
+  total = total + i
+ave = total/len(nums)
+total = 0
+for i in nums:
+  proNums.append(pow((i - ave),2))
+for i in proNums:
+  total = total + i
+ans = pow(total/(len(nums)-1),1/2)
+print(ans)
