@@ -1,14 +1,22 @@
+big = 10*pow(10,30)
 nums = []
 num = 0
 proNums = []
+medNums = [big*-1,big]
 i = 1
 total = 0
 ave = 0
 ans = 0
+stu = 0
+med = 0
 while '' != num:
   num = input('Number ' + str(i) + ': ')
   if num.isdigit():
     nums.append(int(num))
+    j = 0
+    while int(num) < medNums[j] or int(num) > medNums[j+1]:
+      j+=1
+    medNums.insert(j+1,int(num))
   i += 1
 i = 0
 for i in range(0,len(nums)):
@@ -20,5 +28,20 @@ for i in nums:
 for i in proNums:
   total = total + i
 ans = pow(total/(len(nums)-1),1/2)
+medNums.pop()
+del medNums[0]
+stu = medNums
+if len(medNums)%2==0:
+  for i in range(0,round(len(medNums)/2-1)):
+    medNums.pop()
+    del medNums[0]
+  med = (medNums[0] + medNums[1])/2
+else:
+  for i in range(0,round((len(medNums)-1)/2)):
+    medNums.pop()
+    del medNums[0]
+  med = medNums[0]
+print(stu)
 print('Mean: '+str(ave))
 print('Standard Deviation: '+str(ans))
+print(med)
