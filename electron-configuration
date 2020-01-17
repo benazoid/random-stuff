@@ -2,6 +2,7 @@ while 'true':
   ans = ''
   i = 0
   total = 0
+  exceptions = [24,42,74,106,29,47,79]
   order = ['1s2','2s2','2p6','3s2','3p6','4s2','3d10','4p6','5s2','4d10','5p6','6s2','4f14','5d10','6p6','7s2','5f14','6d10','7p6','8s2']
   electronNum = int(input('Number of electrons in the atom (Atomic Number) >> '))
   currNum = int((order[i])[2:])
@@ -14,4 +15,6 @@ while 'true':
     i += 1
   if not total-electronNum-currNum == 0:
     ans = ans + order[i][:2] + str(currNum-(total-electronNum))
-  print(ans)
+  print(ans) 
+  if electronNum in exceptions:
+    print('Note: This element is an exception to the electron configuration rules.')
