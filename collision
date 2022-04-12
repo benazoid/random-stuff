@@ -49,12 +49,11 @@ GameObject[][] grid = maps[level].getGrid();
     public void collideRectRect(Rectangle r1, Rectangle r2){
         Rectangle rect = new Rectangle(r2);
         String loc = getColPos(r1,rect);
-
         while(loc.equals("top")){
             r2.y-=1;
             loc = getColPos(r1,r2);
         }
-        while(!loc.equals("bottom")){
+        while(loc.equals("bottom")){
             r2.y+=1;
             loc = getColPos(r1,r2);
         }
@@ -62,7 +61,6 @@ GameObject[][] grid = maps[level].getGrid();
             r2.x-=1;
             loc = getColPos(r1,r2);
         }
-
         while(loc.equals("right")){
             r2.x+=1;
             loc = getColPos(r1,r2);
